@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Motos</title>
+    <style>
+        :root {
+            /* CSS HEX */
+            --plum: #8a4f7dff;
+            --taupe-gray: #887880ff;
+            --cambridge-blue: #88a096ff;
+            --khaki: #bbab8bff;
+            --coral-pink: #ef8275ff;
+        }
+
+        body { font-family: Arial, sans-serif; background: var(--taupe-gray); }
+        .navbar { display: flex; justify-content: space-around; padding: 1rem; background-color: var(--plum); }
+        .navbar a { color: var(--coral-pink); text-decoration: none; }
+        .container { padding: 2rem; background: var(--cambridge-blue); }
+        .gallery { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .gallery img { width: 100%; max-width: 300px; }
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+        .contact-form input, .contact-form textarea { padding: 0.5rem; background: var(--khaki); }
+        .contact-form button { padding: 1rem; background-color: var(--coral-pink); color: white; border: none; cursor: pointer; }
+        .section { display: none; } /* Inicialmente todas las secciones están ocultas */
+    </style>
+</head>
+<body>
+
+<!-- Navegación -->
+<nav class="navbar">
+    <a href="#inicio" onclick="showSection('inicio')">Inicio</a>
+    <a href="#galeria" onclick="showSection('galeria')">Galería</a>
+    <a href="#contacto" onclick="showSection('contacto')">Contacto</a>
+</nav>
+
+<!-- Sección de inicio -->
+<div id="inicio" class="section container">
+    <h1>Bienvenidos a la Galería de Motos</h1>
+    <p>Explora nuestra colección de motos de alta calidad.</p>
+</div>
+
+<!-- Galería de fotos -->
+<div id="galeria" class="section container">
+    <h2>Galería de Fotos</h2>
+    <div class="gallery">
+        <!-- Aquí irían las imágenes de las motos con su respectivo <img> tag -->
+        <img src="moto1.png" alt="Moto Modelo 1">
+        <img src="moto2.png" alt="Moto Modelo 2">
+        <!-- Más imágenes... -->
+    </div>
+</div>
+
+<!-- Sección de contacto -->
+<div id="contacto" class="section container">
+    <h2>Contacto</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Nombre">
+        <input type="email" placeholder="Correo electrónico">
+        <textarea placeholder="Tu mensaje"></textarea>
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+</div>
+
+<script>
+    // Función para mostrar la sección seleccionada y ocultar las demás
+    function showSection(sectionId) {
+        // Ocultar todas las secciones
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        // Mostrar la sección seleccionada
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Mostrar la sección de inicio por defecto al cargar la página
+    window.onload = function() {
+        showSection('inicio');
+    };
+</script>
+
+</body>
+</html>
